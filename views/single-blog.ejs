@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesSingleBlog.css">
+    <title>
+        <%= blog.title %>
+    </title>
+</head>
+
+<body>
+    <header>
+        <h1>
+            <%= blog.title %>
+        </h1>
+        <a href="/" class="back-to-blogs">Back to Blogs</a>
+    </header>
+    <div class="blog-content">
+        <h2>
+            <%= blog.title %>
+        </h2>
+        <p>
+            <%= blog.content %>
+        </p>
+    </div>
+
+
+    </div>
+
+<!-- Comment Section -->
+<div class="comment-section">
+    <h2>Comments</h2>
+    <ul class="comments-list">
+        <% comments.forEach(comment => { %>
+            <li><%= comment.content %></li>
+        <% }); %>
+    </ul>
+    <form class="comment-form" method="POST" action="/blog/<%= blog.id %>/add-comment">
+        <label for="comment">Add a Comment:</label>
+        <textarea id="comment" name="comment" rows="4" required></textarea>
+
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+
+
+</body>
+
+</html>

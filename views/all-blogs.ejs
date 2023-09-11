@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesAllBlogs.css">
+    <title>All Blogs</title>
+</head>
+
+<body>
+    <header>
+        <h1><i>My Blog Platform</i></h1>
+        <nav>
+            <a href="/" class="all-blogs-link">All Blogs</a>
+            <a href="/create" class="create-blog-link">Create Blog</a>
+        </nav>
+    </header>
+    <div class="blog-container">
+        <% blogs.forEach(blog=> { %>
+            <div class="blog-card">
+                <h2><%= blog.title %></h2>
+                <p><%= blog.content.substring(0, 100) %>...</p>
+                <a href="/blog/<%= blog.id %>" class="read-more-link">Read More</a>
+            </div>
+            <% }); %>
+    </div>
+</body>
+
+</html>
